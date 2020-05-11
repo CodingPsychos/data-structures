@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "dsa.c"
-
+/*
 int main()	{
 	int n = 6;
 	graph_list* g = graph_create(n);
@@ -13,11 +13,11 @@ int main()	{
 	graph_add_edge(g,3,5,1);
 	graph_add_edge(g,4,5,5);
 	graph_add_edge(g,4,3,2);
-	/*
+
 	graph_add_edge(g,0,1,2);
 	graph_add_edge(g,0,2,4);
 	graph_add_edge(g,1,3,1);
-	graph_add_edge(g,2,3,1);*/
+	graph_add_edge(g,2,3,1);
 //	graph_add_edge(g,2,0,5);
 //	graph_add_edge(g,3,3,5);
 //	graph_add_edge(g,4,3);
@@ -31,7 +31,7 @@ int main()	{
 	graph_dijkstra(g,0,n);
 }	
 
-
+*/
 /*
 
 #include<stdio.h>
@@ -377,4 +377,62 @@ int main(){
 }
 		
 				
-*/
+int main(){
+	int n;
+				printf("\nEnter the number of element\n");
+				scanf("%d",&n);
+				int arr[n];
+				printf("\nEnter the elements\n");
+				for(int i=0;i<n;i++){
+					scanf("%d",&arr[i]);
+				}
+				min_heap_build(arr,n);
+				
+				
+				
+				while(1){
+					char c;
+					printf("\na.push\nb.pop\nc.print\nd.delete at position\ne.heap_sort\nq.quit\n");
+					scanf(" %c",&c);
+					if(c=='q'){break;}
+					switch(c){
+						case 'a':{
+							int a;
+						printf("\nEnter the data\n");
+						scanf("%d",&a);
+						min_heap_push(arr,&n,a);
+						break;
+						}
+						case 'b':{
+							min_heap_pop(arr,&n);
+							break;
+						}
+						case 'c':
+						{
+							printf("\nafter min heap\n");
+								for(int i=0;i<n;i++){
+									printf("\n%d",arr[i]);
+								}
+							break;
+						}
+						case 'd':
+						{
+							array_print(arr,n);
+							break;
+						}
+						case 'e':
+						{
+							heap_sort(arr,n);
+							array_print(arr,n);
+							break;
+						}
+						
+					}
+				}
+}*/
+	int main(void){
+		int arr[5]={3,2,4,1,5};
+		heap_sort(arr,5);
+		array_print(arr,5);
+	return 0;	
+	}

@@ -98,6 +98,7 @@ int partition(int* a,int start,int end){
 }
 
 void heap_sort(int* arr,int n){
+	min_heap_build(arr,n);
 	while(n!=1){
 		swap(&arr[0],&arr[n-1]);
 		n--;
