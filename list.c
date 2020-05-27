@@ -204,4 +204,17 @@ void list_clear(list* l)
        current = next; 
    } 
     l->head = NULL; 
-} 
+}
+
+int list_data(list* l,int n)    {
+    if(n < l->count) {
+        list_node *p = l->head;
+        for (int i=0; i<n; i++)
+        {
+            p = p->next;
+        }
+        return p->data;
+    }
+    return -1;
+}
+

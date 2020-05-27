@@ -15,6 +15,7 @@ void main() {
                 "g.print\n"
                 "h.print in reverse\n"
                 "i.reverse list\n"
+                "j.data\n"
                 "q.quit\n"
             );
         char c;
@@ -88,11 +89,22 @@ void main() {
                 case 'h':
                 list_print_in_reverse(l);
                 break;
-                default:printf("Check the data entered");
 
                 case 'i':
                 list_reverse(l);
                 break;
+
+                case 'j':   {
+                int n;
+                printf("Enter the position\n");
+                scanf("%d",&n);
+                printf("%d",list_data(l,n));
+                break;
+                }
+                default:printf("Check the data entered");
+
+                
+
             }
         }
     }
