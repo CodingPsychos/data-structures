@@ -1,4 +1,4 @@
-typedef struct list_node list_node;
+typedef struct list_node list_node,stack,queue;
 typedef struct bst_node bst_node;
 typedef struct avl_node avl_node;
 typedef struct dll_node dll_node;

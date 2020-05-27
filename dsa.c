@@ -8,3 +8,5 @@
 #include "minheap.c"
 #include "maxheap.c"
 #include "graph.c"
+#include "stack.c"
+#include "queue.c"
