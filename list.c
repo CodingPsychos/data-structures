@@ -68,6 +68,7 @@ void list_push(list* l, int data)
         (l->tail)->next = new_node;
         (l->tail) = (l->tail)->next;
     }
+    (l->count)++;
 }
 
 int list_pop(list* l)
@@ -81,12 +82,14 @@ int list_pop(list* l)
         res = (l->head)->data;
         (l->head) = NULL;
         (l->tail) = NULL;
+        (l->count)--;
     }
     else if ((l->head)->next == (l->tail))
     {
         res = (l->tail)->data;
         (l->head)->next = NULL;
         (l->tail) = (l->head);
+        (l->count)--;
     }
     else
     {
@@ -96,6 +99,7 @@ int list_pop(list* l)
             p = p->next;
         (l->tail) = p;
         (l->tail)->next = NULL;
+        (l->count)--;
     }
     return res;
 }
@@ -113,6 +117,7 @@ void list_shift(list* l, int data)
         p->next = (l->head);
         (l->head) = p;
     }
+    (l->count)++;
 }
 
 int list_unshift(list* l)
@@ -126,12 +131,14 @@ int list_unshift(list* l)
         res = (l->head)->data;
         (l->head) = NULL;
         (l->tail) = NULL;
+        (l->count)--;
     }
     else
     {
         res = (l->head)->data;
         (l->head) = (l->head)->next;
-    }
+        (l->count)--;
+    } 
     return res;
 }
 
@@ -147,7 +154,7 @@ int list_insert(list* l, int p, int n)
     }
     new_node->next = temp->next;
     temp->next = new_node;
-
+    (l->count)++;
     return new_node->data;
 }
 
@@ -166,6 +173,7 @@ int list_delete(list* l, int p)
         }
     }
     temp->next = temp->next->next;
+    (l->count)--;
     return p;
 }
 

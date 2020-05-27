@@ -31,11 +31,13 @@ void main() {
                 scanf("%d",&a);
                 list_push(l,a);
                 list_print(l);
+                printf("count = %d",l->count);
                 break;}
                 
                 case 'b':
                 list_pop(l);
                 list_print(l);
+                printf("count = %d",l->count);
                 break;
                 
                 case 'c':{
@@ -44,11 +46,13 @@ void main() {
                 scanf("%d",&a);
                 list_shift(l,a);
                 list_print(l);
+                printf("count = %d",l->count);
                 break;}
                 
                 case 'd':
                 list_unshift(l);
                 list_print(l);
+                printf("count = %d",l->count);
                 break;
                 
                 
