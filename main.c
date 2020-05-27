@@ -3,9 +3,41 @@
 #include "dsa.c"
 
 void main() {
+	queue* front=NULL;
+	queue* rear=NULL;
+
+	while(1){
+	printf("\na.push\nb.pop\nc.front\nq.quit\n");
+	char c;
+	scanf("\n%c",&c);
+	if(c=='q')
+		break;
+	switch(c){
+		case 'a':{
+			printf("enter data\n");
+			int s;
+			scanf("%d",&s);
+			 enqueue(&front,&rear,s);
+			 break;
+			 }
+		case 'b':{
+			 printf("\n%d removed\n",dequeue(&front,&rear));
+			 break;
+			 } 
+		case 'c':{
+			 printf("\nfront=%d\n",queue_get_front(&front,&rear));
+			 break;
+			 }
+	
+	}
+	}}
+		
+	
+	
+	/*
 		//list node
 		list_node* head=NULL;
-		li st_node* tail=NULL;
+		list_node* tail=NULL;
 		
 		while(1){
 		
@@ -88,5 +120,7 @@ void main() {
 				break;
 			}
 		}
-	}
-}
+	}*/
+
+
+
