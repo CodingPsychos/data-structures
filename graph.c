@@ -1,8 +1,8 @@
 struct graph_node	{
-	sll_node* head;
-	sll_node* tail;
-	sll_node* weightHead;
-	sll_node* weightTail;
+	list_node* head;
+	list_node* tail;
+	list_node* weightHead;
+	list_node* weightTail;
 };
 struct graph_list	{
 	int V;
@@ -23,21 +23,21 @@ graph_list* graph_create(int n)	{
 }
 
 void graph_add_edge(graph_list* g, int s, int t,int weight)	{
-	sll_push_at_end(&(g->list[s].head),&(g->list[s].tail),t);
-	sll_push_at_end(&(g->list[s].weightHead),&(g->list[s].weightTail),weight);
+	list_push(&(g->list[s].head),&(g->list[s].tail),t);
+	list_push(&(g->list[s].weightHead),&(g->list[s].weightTail),weight);
 }
 
 void graph_print(graph_list* g)	{
 	for(int i=0; i<g->V; i++)	{
 		printf("vertex %d ->  ",i);
-		sll_print(g->list[i].head);	
+		list_print(g->list[i].head);	
 		printf("weight %d ->  ",i);
-		sll_print(g->list[i].weightHead);	
+		list_print(g->list[i].weightHead);	
 	}
 }
 
 void graph_dfsUTIL(graph_list* g,int a,int* visited,int n){
-	sll_node* p=g->list[a].head;
+	list_node* p=g->list[a].head;
 	printf("%d\n",a);
 	visited[a]=1;
 	
@@ -57,9 +57,9 @@ void graph_dfs(graph_list* g,int a,int V){
 	graph_dfsUTIL(g,a,visited,V);
 }
 
-void bfs_print(graph_list* g,sll_node* temp,int* visited){
+void bfs_print(graph_list* g,list_node* temp,int* visited){
 	if(temp!=NULL){
-		sll_node* p=temp;
+		list_node* p=temp;
 		while(p!=NULL){
 			if(!visited[p->data]){
 				printf("%d\n",p->data);
@@ -83,11 +83,11 @@ void graph_bfs(graph_list* g,int a,int n){
 
 }
 
-int shortest_dist(sll_node** head){
+int shortest_dist(list_node** head){
 	int ans=0;
 	int min=9999;
 	int count=0;
-	sll_node* dist=*head;
+	list_node* dist=*head;
 	while(dist!=NULL){
 		if(dist->data<min){
 			min=dist->data;
@@ -100,7 +100,7 @@ int shortest_dist(sll_node** head){
 return ans;	
 }
 
-int set_dist(sll_node** head,int n){
+int set_dist(list_node** head,int n){
 	int ans=0;
 	int val=1;
 	while(val!=n){
@@ -109,7 +109,7 @@ int set_dist(sll_node** head,int n){
 	}
 return (*head)->data;	
 }
-void set_vertices(sll_node** head,int n){
+void set_vertices(list_node** head,int n){
 	int val=1;
 	while(val!=n){
 		*head=(*head)->next;
@@ -117,16 +117,16 @@ void set_vertices(sll_node** head,int n){
 	}
 }
 
-int set_weight(sll_node* head,sll_node* p,int* weight,int prev_weight){
+int set_weight(list_node* head,list_node* p,int* weight,int prev_weight){
 	if((head->data +prev_weight) < weight[p->data])
 		weight[p->data]=(head->data+prev_weight);
 return (head->data + prev_weight);
 }
-int check(sll_node** head){
+int check(list_node** head){
 	int ans=1;
 	int len=0;
 	int count=0;
-	sll_node* temp=*head;
+	list_node* temp=*head;
 	while((*head)!=NULL){
 		*head=(*head)->next;
 		len++;
@@ -144,12 +144,12 @@ int check(sll_node** head){
 return ans;
 }
 
-void dijkstraUTIL(graph_list* g,sll_node** p,sll_node** dist,int* visited,int* weight,int a,int begin){
+void dijkstraUTIL(graph_list* g,list_node** p,list_node** dist,int* visited,int* weight,int a,int begin){
 	if((*p)!=NULL){
 		if(visited[begin]!=1){
 		visited[begin]=1;
-			sll_node* temp=*p;
-			sll_node* temp1=*dist;
+			list_node* temp=*p;
+			list_node* temp1=*dist;
 				while(check(dist)){
 					*dist=temp1;
 					*p=temp;

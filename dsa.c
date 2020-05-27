@@ -1,6 +1,6 @@
 #include "prototypes.c"
 #include "base.c"
-#include "sll.c"
+#include "list.c"
 #include "dll.c"
 #include "bst.c"
 #include "avl.c"
