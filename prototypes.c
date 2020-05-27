@@ -1,4 +1,5 @@
 typedef struct list_node list_node,stack,queue;
+typedef struct list list;
 typedef struct bst_node bst_node;
 typedef struct avl_node avl_node;
 typedef struct dll_node dll_node;
@@ -10,15 +11,16 @@ dll_node* dll_new_node(int data);
 bst_node* bst_new_node(int data);
 graph_list* graph_create(int);
 
-void list_print(list_node* head);
-void list_print_in_reverse(list_node* head);
-void list_push(list_node** head, list_node** tail, int data);
-void list_shift(list_node** head, list_node** tail, int data);
-int list_pop(list_node** head, list_node** tail);
-int list_unshift(list_node** head, list_node** tail);
-void list_reverse(list_node** head);
-int list_insert(list_node** ,list_node**, int,int);
-int list_delete(list_node**,list_node**,int);
+void list_print(list*);
+void list_print_in_reverse(list*);
+void list_print_in_reverve_recursive_part(list_node* head);
+void list_push(list*, int data);
+void list_shift(list*, int data);
+int list_pop(list* tail);
+int list_unshift(list*);
+void list_reverse(list*);
+int list_insert(list*, int,int);
+int list_delete(list*,int);
 
 void dll_print(dll_node* head);
 void dll_push_at_end(dll_node** head, dll_node** tail, int data);
