@@ -5,7 +5,7 @@
 //#include "bst.c"
 //#include "avl.c"
 //#include "sort.c"
-//#include "minheap.c"
+#include "minheap.c"
 //#include "maxheap.c"
 //#include "graph.c"
 //#include "stack.c"
